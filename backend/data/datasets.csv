@@ -1,0 +1,6 @@
+name,description,category,ml_task,data_type,difficulty,source,download_url,license,rows,columns,file_size,target_column,language,tags,thumbnail
+Iris Dataset,Classic flower classification dataset,Education,Classification,CSV,Beginner,UCI,https://archive.ics.uci.edu/ml/datasets/iris,CC BY 4.0,150,5,12 KB,species,English,"iris,flowers,classification",https://placehold.co/300x200
+Titanic Survival,Predict passenger survival,Education,Classification,CSV,Beginner,Kaggle,https://www.kaggle.com/competitions/titanic,CC BY 4.0,891,12,60 KB,Survived,English,"titanic,survival,classification",https://placehold.co/300x200
+Heart Disease Prediction,Predict heart disease using patient records,Healthcare,Classification,CSV,Intermediate,Kaggle,https://www.kaggle.com/datasets,CC BY 4.0,1025,14,85 KB,target,English,"heart-disease,healthcare,classification",https://placehold.co/300x200
+Wine Quality,Predict wine quality using physicochemical tests,Food,Regression,CSV,Intermediate,UCI,https://archive.ics.uci.edu/ml/datasets/wine+quality,CC BY 4.0,4898,12,190 KB,quality,English,"wine,regression",https://placehold.co/300x200
+Credit Card Fraud,Detect fraudulent credit card transactions,Finance,Classification,CSV,Advanced,Kaggle,https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud,ODbL,284807,31,150 MB,Class,English,"fraud,finance,classification",https://placehold.co/300x200
