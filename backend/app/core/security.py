@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta, timezone
 import os
+from datetime import datetime, timedelta, timezone
 
 from dotenv import load_dotenv
 from fastapi import Depends, HTTPException, status
@@ -17,7 +18,9 @@ from app.models.user import User
 
 load_dotenv()
 
-SECRET_KEY = os.getenv("SECRET_KEY")
+SECRET_KEY = os.getenv("SECRET_KEY", "dev-only-change-me")
+if os.getenv("ENVIRONMENT", "development").lower() == "production" and SECRET_KEY == "dev-only-change-me":
+    raise RuntimeError("Set SECRET_KEY before starting production")
 ALGORITHM = os.getenv("ALGORITHM", "HS256")
 ACCESS_TOKEN_EXPIRE_MINUTES = int(
     os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", 60)

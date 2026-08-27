@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import Navbar from "../components/layout/Navbar";
-import Footer from "../components/layout/Footer";
 
 import DatasetHero from "../components/dataset/DatasetHero";
 import DatasetStats from "../components/dataset/DatasetStats";
@@ -126,7 +125,6 @@ function DatasetDetails() {
 
                 </div>
 
-                <Footer />
 
             </div>
 

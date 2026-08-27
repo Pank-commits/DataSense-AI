@@ -1,0 +1,2 @@
+# Detect text files without rewriting their existing line endings.
+* text=auto

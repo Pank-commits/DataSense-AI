@@ -1,5 +1,6 @@
 import os
 
+import os
 from dotenv import load_dotenv
 from google import genai
 
@@ -11,6 +12,7 @@ if not GEMINI_API_KEY:
     raise ValueError("GEMINI_API_KEY not found in .env file")
 
 client = genai.Client(api_key=GEMINI_API_KEY)
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite")
 
 
 def ask_gemini(question: str, context: str) -> str:
@@ -56,7 +58,7 @@ Provide:
 """
 
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model=GEMINI_MODEL,
         contents=prompt,
     )
 

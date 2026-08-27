@@ -18,7 +18,7 @@ class Dataset(Base):
     category = Column(String(100), nullable=False)
     ml_task = Column(String(100), nullable=False)
     data_type = Column(String(100), nullable=False)
-    difficulty = Column(String(50), nullable=False)
+    difficulty = Column(String(50), nullable=True)
 
     # Source
     source = Column(String(100), nullable=False)

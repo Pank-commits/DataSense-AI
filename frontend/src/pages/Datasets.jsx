@@ -1,7 +1,6 @@
 import { useEffect, useState, useCallback, useRef } from "react";
 
 import Navbar from "../components/layout/Navbar";
-import Footer from "../components/layout/Footer";
 import Sidebar from "../components/layout/Sidebar";
 import SearchBar from "../components/search/SearchBar";
 import SortBar from "../components/search/SortBar";
@@ -196,7 +195,6 @@ function Datasets() {
 
         </div>
 
-        <Footer />
 
       </div>
 

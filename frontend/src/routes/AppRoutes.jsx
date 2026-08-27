@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-
+import AIChat from "../components/AIChat/AIChat";
 // Public Pages
 import Home from "../pages/Home";
 import Datasets from "../pages/Datasets";
@@ -8,7 +8,6 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import About from "../pages/About";
 import NotFound from "../pages/NotFound";
-
 // Protected Route
 import ProtectedRoute from "../components/common/ProtectedRoute";
 
@@ -31,7 +30,6 @@ const AppRoutes = () => {
         path="/"
         element={<Home />}
       />
-
       <Route
         path="/datasets"
         element={<Datasets />}
@@ -90,6 +88,15 @@ const AppRoutes = () => {
             <Dashboard />
           </AdminRoute>
         }
+      />
+
+      <Route
+        path="/ai"
+        element={
+          <ProtectedRoute>
+            <AIChat />
+          </ProtectedRoute>
+       }
       />
 
       <Route

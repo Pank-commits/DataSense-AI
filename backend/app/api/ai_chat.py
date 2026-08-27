@@ -1,8 +1,9 @@
 from pydantic import BaseModel
 
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
+from pydantic import BaseModel
 
-from app.ai.rag_service import ask_datasense
+from app.agents.dataset_agent import run_dataset_agent
 
 
 router = APIRouter(
@@ -21,6 +22,10 @@ def chat(request: ChatRequest):
     AI Dataset Assistant
     """
 
-    return ask_datasense(
-        request.question
-    )
+    try:
+        return run_dataset_agent(question=request.question)
+    except Exception as error:
+        raise HTTPException(
+            status_code=503,
+            detail="Recommendation service is temporarily unavailable.",
+        ) from error

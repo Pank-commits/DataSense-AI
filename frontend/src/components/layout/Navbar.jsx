@@ -65,6 +65,13 @@ function Navbar() {
                     </NavLink>
 
                     <NavLink
+                        to="/ai"
+                        className={navLinkClass}
+                    >
+                        AI Assistant
+                    </NavLink>
+
+                    <NavLink
                         to="/about"
                         className={navLinkClass}
                     >
@@ -151,6 +158,14 @@ function Navbar() {
                             onClick={() => setMenuOpen(false)}
                         >
                             Datasets
+                        </NavLink>
+
+                        <NavLink
+                            to="/ai"
+                            className={navLinkClass}
+                            onClick={() => setMenuOpen(false)}
+                        >
+                            AI Assistant
                         </NavLink>
 
                         <NavLink

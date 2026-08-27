@@ -1,6 +1,7 @@
 from datetime import datetime
 
-from pydantic import BaseModel, EmailStr, ConfigDict
+from datetime import datetime
+from pydantic import BaseModel, EmailStr, ConfigDict, Field
 
 
 # ==========================
@@ -8,9 +9,9 @@ from pydantic import BaseModel, EmailStr, ConfigDict
 # ==========================
 
 class UserRegister(BaseModel):
-    full_name: str
+    full_name: str = Field(min_length=1, max_length=120)
     email: EmailStr
-    password: str
+    password: str = Field(min_length=8, max_length=128)
 
 
 # ==========================
@@ -19,7 +20,7 @@ class UserRegister(BaseModel):
 
 class UserLogin(BaseModel):
     email: EmailStr
-    password: str
+    password: str = Field(min_length=1, max_length=128)
 
 
 # ==========================

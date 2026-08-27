@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import Navbar from "../components/layout/Navbar";
-import Footer from "../components/layout/Footer";
 
 import DatasetHero from "../components/dataset/DatasetHero";
 import DatasetDescription from "../components/dataset/DatasetDescription";
@@ -49,7 +48,6 @@ function DatasetDetails() {
             Loading dataset...
           </h2>
         </div>
-        <Footer />
       </>
     );
   }
@@ -63,7 +61,6 @@ function DatasetDetails() {
             {error || "Dataset not found"}
           </h2>
         </div>
-        <Footer />
       </>
     );
   }
@@ -92,7 +89,6 @@ function DatasetDetails() {
 
       </main>
 
-      <Footer />
     </>
   );
 }
