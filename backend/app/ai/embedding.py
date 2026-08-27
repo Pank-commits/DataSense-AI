@@ -1,5 +1,5 @@
-from huggingface_hub.utils import logging as huggingface_logging
-from sentence_transformers import SentenceTransformer
+from threading import Lock
+
 from huggingface_hub.utils import logging as huggingface_logging
 from transformers.utils import logging as transformers_logging
 
@@ -11,25 +11,39 @@ transformers_logging.set_verbosity_error()
 
 class EmbeddingModel:
     """
-    Singleton embedding model.
-    Loads only once when FastAPI starts.
+    Singleton-style embedding model wrapper.
+
+    The SentenceTransformer model is loaded lazily on the first embedding
+    request instead of during FastAPI startup.
     """
 
     def __init__(self):
-        print("Loading Sentence Transformer model...")
-        self.model = SentenceTransformer(
-            "sentence-transformers/all-MiniLM-L6-v2"
-        )
-        print("Embedding model loaded successfully.")
+        self.model = None
+        self._lock = Lock()
+
+    def _load_model(self):
+        if self.model is not None:
+            return
+
+        with self._lock:
+            if self.model is None:
+                print("Loading Sentence Transformer model...")
+
+                from sentence_transformers import SentenceTransformer
+
+                self.model = SentenceTransformer(
+                    "sentence-transformers/all-MiniLM-L6-v2"
+                )
+
+                print("Embedding model loaded successfully.")
 
     def encode(self, text: str):
-        """
-        Generate embedding vector for text.
-        """
+        """Generate an embedding vector for text."""
+        self._load_model()
 
         return self.model.encode(
             text,
-            normalize_embeddings=True
+            normalize_embeddings=True,
         ).tolist()
 
 
